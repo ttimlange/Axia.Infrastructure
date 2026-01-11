@@ -37,3 +37,15 @@ scrape_configs:
       - targets: [ 'cadvisor:8080' ]
         labels:
           container: 'cadvisor'
+
+  # Axia: Add this new job for the Axia API service
+  - job_name: axia-api
+    scrape_interval: 10s
+    scheme: https
+    tls_config:
+      insecure_skip_verify: true  # Only for development with self-signed cert
+    static_configs:
+      - targets: [ 'host.docker.internal:7136' ]  # Adjust port if different
+        labels:
+          application: 'axia'
+          environment: 'development'

@@ -6,7 +6,8 @@ providers:
     type: file
     disableDeletion: false
     updateIntervalSeconds: 60
-    allowUiUpdates: false
+    allowUiUpdates: true # Axia: Allow UI updates for dashboards
+    editable: true # Axia: Make dashboards editable
     options:
       path: /var/lib/grafana/dashboards
       foldersFromFilesStructure: true
